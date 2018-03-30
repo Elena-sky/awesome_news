@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Contracts\HomeInterface;
+use App\Providers\HomeServiceProvider;
+
+
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -16,6 +21,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     /**
@@ -23,9 +29,60 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function show()
     {
-        $user = Auth::user();
-        return view('cabinet.home', compact('user'));
+        $news = HomeServiceProvider::show();
+
+        return view('cabinet.home', ['news' => $news]);
     }
+
+
+    public function newNews()
+    {
+        return view('cabinet.newNews');
+    }
+
+
+    public function create(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        HomeServiceProvider::create($request);
+
+        return \redirect(route('home'));
+    }
+
+    public static function showUpdate($news_id){
+
+        if (!empty($news_id)){
+            $news = HomeServiceProvider::update($news_id);
+        }
+
+        return view('cabinet.newsUpdate', compact('news'));
+
+    }
+
+    public function saveNews(Request $request){
+
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        HomeServiceProvider::put($request);
+
+        return \redirect(route('home'));
+    }
+
+
+    public function deleteNews($id){
+
+        dd($id);
+
+        return \redirect(route('home'));
+    }
+
 }

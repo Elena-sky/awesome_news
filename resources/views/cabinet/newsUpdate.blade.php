@@ -2,8 +2,8 @@
 
 @section('content')
 
-@include('profile.show')
+    @include('profile.show')
 
-@include('news.history')
+    @include('news.update')
 
 @endsection
