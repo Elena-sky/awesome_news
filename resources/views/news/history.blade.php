@@ -26,7 +26,7 @@
                                             <a class="robotolight"><i class="fa fa-calendar"></i>{{$item->created_at}}</a>
                                             <a class="robotolight" href="#"><i class="fa fa-commenting"></i>17</a>
                                             <a class="robotolight" href="{{route('updateNews', [$item->id])}}"><i class="fa fa-pencil-square-o"></i></a>
-                                            <a class="robotolight" href="{{route('newsDelete', ['id' => $item->id])}}"><i class="fa fa-remove"></i></a>
+                                            <a class="robotolight delete-news" data-news-id="{{$item->id}}"><i class="fa fa-remove"></i></a>
                                         </div>
 
                                     </div>

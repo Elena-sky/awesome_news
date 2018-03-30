@@ -78,11 +78,12 @@ class HomeController extends Controller
     }
 
 
-    public function deleteNews($id){
+    public function deleteNews(Request $request){
 
-        dd($id);
+        if(!empty($request)){
+            HomeServiceProvider::delete($request);
+        }
 
-        return \redirect(route('home'));
     }
 
 }

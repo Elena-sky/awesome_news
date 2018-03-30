@@ -29,4 +29,4 @@ Route::get('/home/news/update/{id}', 'HomeController@showUpdate')->name('updateN
 Route::put('/home/news/update/save/{id}', 'HomeController@saveNews')->name('newsSave'); // action
 
 //Delete news
-Route::get('/home/news/delete/{id}', 'HomeController@deleteNews')->name('newsDelete'); // action
+Route::delete('/home/news/delete', 'HomeController@deleteNews')->name('newsDelete'); // action

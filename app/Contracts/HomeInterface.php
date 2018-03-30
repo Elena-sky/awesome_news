@@ -15,5 +15,5 @@ interface HomeInterface
 
     public static function put(Request $request);
 
-    public static function delete($news_id);
+    public static function delete(Request $request);
 }

@@ -51,9 +51,13 @@ class HomeServiceProvider implements HomeInterface
         $news->update($data);
     }
 
-    public static function delete($news_id)
+    public static function delete(Request $request)
     {
-       dd($news_id);
+        $news_id = $request->id;
+        $news = News::find($news_id);
+        $news->delete();
+
+        return true;
     }
 
 
