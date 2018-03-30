@@ -31,9 +31,11 @@ class HomeController extends Controller
      */
     public function show()
     {
+
         $news = HomeServiceProvider::show();
 
-        return view('cabinet.home', ['news' => $news]);
+
+        return view('cabinet.home', compact('news'));
     }
 
 

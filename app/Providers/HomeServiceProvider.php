@@ -5,14 +5,21 @@ namespace App\Providers;
 use App\Contracts\HomeInterface;
 use App\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class HomeServiceProvider implements HomeInterface
 {
     public static function show()
     {
+        $news = Auth::user()->news()->get();
 
-        return $news = News::all();
+        if(count($news)){
+            return $news;
+        } else {
+            return false;
+        }
+
 
     }
 
