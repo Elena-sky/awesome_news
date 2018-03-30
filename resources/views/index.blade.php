@@ -20,14 +20,14 @@
                             @foreach($news as $item)
 
                                 <div class="col-sm-4">
-                                    <div class="single_blog">
+                                    <div class="single_blog mg">
                                         <div class="single_blog_content">
                                             <p class="monseratregular">{{$item->title}}</p>
                                             <p>{{$item->description }}</p>
                                             <hr />
 
                                             <div class="single_blog_bottom_content">
-                                                <a class="robotolight" href="#"><i class="fa fa fa-user"></i> {{$item->user->name}} </a>
+                                                <a class="robotolight" href="{{route('showProfile', [$item->user->id])}}"><i class="fa fa fa-user"></i> {{$item->user->name}} </a>
                                                 <a class="robotolight"><i class="fa fa-calendar"></i> {{$item->created_at}} </a>
                                             </div>
 

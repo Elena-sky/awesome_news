@@ -28,3 +28,7 @@ Route::put('/home/news/update/save/{id}', 'HomeController@saveNews')->name('news
 
 //Delete news
 Route::delete('/home/news/delete', 'HomeController@deleteNews')->name('newsDelete'); // action
+
+
+// Show profile of user
+Route::get('/user/{id}', 'UsersController@profile')->name('showProfile'); // view

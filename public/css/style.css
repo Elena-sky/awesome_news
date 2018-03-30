@@ -1190,6 +1190,9 @@ input::-ms-input-placeholder {
     margin-left:10px;
     margin-bottom:30px;
 }
+.mg{
+    margin-bottom: 50px;
+}
 .blog .main_blog_content .single_blog .single_blog_img{
     margin-bottom:20px;
     position: relative;
