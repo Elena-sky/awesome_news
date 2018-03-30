@@ -1,177 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app()->getLocale() }}">
+
 <head>
-    <title>SybarMagazine</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>News</title>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link href="{{ asset("css/bootstrap.min.css") }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset("css/font-awesome.min.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/animate.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/li-scroller.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/slick.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/theme.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/style.css") }}" rel="stylesheet">
+    <!-- Google fonts link-->
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ asset("css/font-awesome.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
 
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="{{ asset("css/plugins.css") }}" />
 
-    <script src="{{ asset("js/html5shiv.min.js") }}"></script>
-    <script src="{{ asset("js/respond.min.js") }}"></script>
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="{{ asset("css/responsive.css") }}" />
 
 </head>
-<body>
-<div id="preloader">
-    <div id="status">&nbsp;</div>
-</div>
-<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-<div class="container">
-    <div class="box_wrapper">
-        <header id="header">
-            <div class="header_top">
-                <nav class="navbar navbar-default" role="navigation">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        </div>
-                        <div id="navbar" class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav custom_nav">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="#">Shortcodes</a></li>
-                                <li><a href="pages/category-archive.html">Archive</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="pages/404.html">404 Page</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <div class="header_search">
-                    <button id="searchIcon"><i class="fa fa-search"></i></button>
-                    <div id="shide">
-                        <div id="search-hide">
-                            <form action="#">
-                                <input type="text" size="40" placeholder="Search here ...">
-                            </form>
-                            <button class="remove"><span><i class="fa fa-times"></i></span></button>
-                        </div>
+<body data-spy="scroll" data-target=".navbar-collapse">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class='preloader'><div class='loaded'>&nbsp;</div></div>
+<div class="culmn">
+    <header id="main_menu" class="header navbar-fixed-top">
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="/">
+                                        <h1><i class="fa fa-angellist" size></i></h1>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="/">All news</a></li>
+                                        @guest
+                                        <li><a href="{{ route('login') }}">Login</a></li>
+                                        <li><a href="{{ route('register') }}">Register</a></li>
+                                        @else
+                                            <li><a href="{{ route('home') }}">My page</a></li>
+                                            <li><a href="{{ route('newNews') }}">Create news</a></li>
+
+                                            <li>
+                                                <a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                    Logout
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </li>
+
+                                            @endguest
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </nav>
                     </div>
                 </div>
+
             </div>
-            <div class="header_bottom">
-                <div class="logo_area"><a class="logo" href="#"><b>S</b>ybarMagazine <span>A Pro Magazine Theme</span></a></div>
-                <div class="top_addarea"><a href="#"><img src="{{ asset("images/addbanner_728x90_V1.jpg") }}" alt=""></a></div>
-            </div>
-        </header>
-        <div class="latest_newsarea"> <span>Latest News</span>
-            <ul id="ticker01" class="news_sticker">
-                <li><a href="#">My First News Item</a></li>
-                <li><a href="#">My Second News Item</a></li>
-                <li><a href="#">My Third News Item</a></li>
-                <li><a href="#">My Four News Item</a></li>
-                <li><a href="#">My Five News Item</a></li>
-                <li><a href="#">My Six News Item</a></li>
-                <li><a href="#">My Seven News Item</a></li>
-                <li><a href="#">My Eight News Item</a></li>
-                <li><a href="#">My Nine News Item</a></li>
-            </ul>
+
         </div>
+    </header> <!--End of header -->
 
 
         @yield('content')
 
 
-<footer id="footer">
-    <div class="footer_top">
-        <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="single_footer_top wow fadeInLeft">
-                <h2>Follow By Email</h2>
-                <div class="subscribe_area">
-                    <p>"Subscribe here to get our newsletter, it is safe just Put your Email and click subscribe"</p>
-                    <form action="#">
-                        <div class="subscribe_mail">
-                            <input class="form-control" type="email" placeholder="Email Address">
-                            <i class="fa fa-envelope"></i></div>
-                        <input class="submit_btn" type="submit" value="Submit">
-                    </form>
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="main_footer text-center">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="copyright_text">
+                            <p class=" wow fadeInRight" data-wow-duration="1s">&copy; 2018 Alena Soroka</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="single_footer_top wow fadeInLeft">
-                <h2>Popular Post</h2>
-                <ul class="catg3_snav ppost_nav">
-                    <li>
-                        <div class="media"> <a class="media-left" href="pages/single_page.html"> <img src="images/70x70.jpg" alt=""> </a>
-                            <div class="media-body"> <a class="catg_title" href="pages/single_page.html"> Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="media"> <a class="media-left" href="pages/single_page.html"> <img src="images/70x70.jpg" alt=""> </a>
-                            <div class="media-body"> <a class="catg_title" href="#"> Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="media"> <a class="media-left" href="#"> <img src="images/70x70.jpg" alt=""> </a>
-                            <div class="media-body"> <a class="catg_title" href="#"> Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="single_footer_top wow fadeInRight">
-                <h2>Labels</h2>
-                <ul class="footer_labels">
-                    <li><a href="#">Comedy</a></li>
-                    <li><a href="#">Arts</a></li>
-                    <li><a href="#">Cinema</a></li>
-                    <li><a href="#">Nature</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="#">Tourism</a></li>
-                    <li><a href="#">Videos</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="single_footer_top wow fadeInRight">
-                <h2>Contact Form</h2>
-                <form action="#" class="contact_form">
-                    <label>Name</label>
-                    <input class="form-control" type="text">
-                    <label>Email*</label>
-                    <input class="form-control" type="email">
-                    <label>Message*</label>
-                    <textarea class="form-control" cols="30" rows="10"></textarea>
-                    <input class="send_btn" type="submit" value="Send">
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="footer_bottom">
-        <div class="footer_bottom_left">
-            <p>Copyright &copy; 2045</p>
-        </div>
-        <div class="footer_bottom_right">
-            <ul>
-                <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Googel+" href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Youtube" href="#"><i class="fa fa-youtube"></i></a></li>
-                <li><a class="tootlip" data-toggle="tooltip" data-placement="top" title="Rss" href="#"><i class="fa fa-rss"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-</div>
+    </footer>
+
 </div>
 
-<script src="{{ asset("js/jquery.min.js") }}"></script>
-<script src="{{ asset("js/wow.min.js") }}"></script>
-<script src="{{ asset("js/bootstrap.min.js") }}"></script>
-<script src="{{ asset("js/slick.min.js") }}"></script>
-<script src="{{ asset("js/jquery.li-scroller.1.0.js") }}"></script>
-<script src="{{ asset("js/custom.js") }}"></script>
+<!-- START SCROLL TO TOP  -->
+
+<div class="scrollup">
+    <a href="#"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script src="{{ asset("js/vendor/jquery-1.11.2.min.js") }}"></script>
+<script src="{{ asset("js/vendor/bootstrap.min.js") }}"></script>
+
+<script src="{{ asset("js/jquery.mixitup.min.js") }}"></script>
+<script src="{{ asset("js/jquery.easing.1.3.js") }}"></script>
+<script src="{{ asset("js/jquery.masonry.min.js") }}"></script>
+<script src="{{ asset("js/jquery.fancybox.pack.js") }}"></script>
+
+
+
+<script>
+
+    function showmap() {
+        var mapOptions = {
+            zoom: 8,
+            scrollwheel: false,
+            center: new google.maps.LatLng(-34.397, 150.644),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+    }
+
+</script>
+
+<script src="{{ asset("js/vendor/modernizr-2.8.3-respond-1.4.2.min.js") }}"></script>
+
+<script src="{{ asset("js/plugins.js") }}"></script>
+<script src="{{ asset("js/main.js") }}"></script>
 
 </body>
 </html>
