@@ -164,7 +164,27 @@ jQuery(document).ready(function ($) {
 
 
 
+    $(".delete-news").click(function () {
+        var id = $(this).data('news-id');
 
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: "delete",
+            url: "http://news.loc/home/news/delete",
+            data: {id: id, _method: 'delete'},
+            success: function (response) {
+                console.log(id + ' удалилось');
+                window.location.reload(true);
+            },
+            error: function () {
+
+            }
+
+
+            })
+    });
 
 
 
