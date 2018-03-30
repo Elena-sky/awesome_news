@@ -22,13 +22,17 @@
                                 <div class="col-sm-4">
                                     <div class="single_blog mg">
                                         <div class="single_blog_content">
-                                            <p class="monseratregular">{{$item->title}}</p>
+                                            <a href="{{route('showNews', [$item->id])}}">
+                                                <p class="monseratregular">{{$item->title}}</p>
+                                            </a>
+
                                             <p>{{$item->description }}</p>
                                             <hr />
 
                                             <div class="single_blog_bottom_content">
                                                 <a class="robotolight" href="{{route('showProfile', [$item->user->id])}}"><i class="fa fa fa-user"></i> {{$item->user->name}} </a>
                                                 <a class="robotolight"><i class="fa fa-calendar"></i> {{$item->created_at}} </a>
+                                                <a class="robotolight"  href="{{route('showNews', [$item->id])}}"><i class="fa fa-comment"></i> 58 </a>
                                             </div>
 
                                         </div>

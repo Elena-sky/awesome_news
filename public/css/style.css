@@ -1193,6 +1193,9 @@ input::-ms-input-placeholder {
 .mg{
     margin-bottom: 50px;
 }
+.detail-block{
+    margin-top: 20px;
+}
 .blog .main_blog_content .single_blog .single_blog_img{
     margin-bottom:20px;
     position: relative;

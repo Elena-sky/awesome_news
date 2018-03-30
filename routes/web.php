@@ -32,3 +32,6 @@ Route::delete('/home/news/delete', 'HomeController@deleteNews')->name('newsDelet
 
 // Show profile of user
 Route::get('/user/{id}', 'UsersController@profile')->name('showProfile'); // view
+
+// Show news detail with comments
+Route::get('/news/{id}', 'NewsController@show')->name('showNews'); // view
