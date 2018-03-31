@@ -14,7 +14,12 @@
                                         <div class="separator"></div>
                                         <h4 class="subtitle">E-mail: {{ $user->email }}</h4>
 
-                                        @else
+                                        @if(\Illuminate\Support\Facades\Auth::check())
+                                                <button type="button" class="btn btn-success subscribe" data-user-id="{{$user->id}}">Subscribe</button>
+                                        @endif
+
+
+                                    @else
                                             <h2>{{ Auth::user()->name }}</h2>
 
                                             <div class="separator"></div>
@@ -43,18 +48,31 @@
                         <div class="single_counter">
                             <div class="col-sm-3 col-xs-12">
                                 <div class="single_counter_item">
-                                    <h2 class="statistic-counter">5</h2>
-                                    <h3>Подпищиков</h3>
-                                </div>
 
+                                    @isset($user)
+                                            <h2 class="statistic-counter">{{count($user->subscribers()->get())}}</h2>
+                                            <h3>Подпищиков</h3>
+                                        @else
+                                            <h2 class="statistic-counter">{{count(Auth::user()->subscribers()->get())}}</h2>
+                                            <h3>Подпищиков</h3>
+                                    @endisset
+
+                                </div>
                             </div>
                         </div>
 
                         <div class="single_counter">
                             <div class="col-sm-3 col-xs-12">
                                 <div class="single_counter_item">
-                                    <h2 class="statistic-counter">99</h2>
-                                    <h3>Подписок</h3>
+
+                                    @isset($user)
+                                        <h2 class="statistic-counter">{{count($user->subscription()->get())}}</h2>
+                                        <h3>Подписок</h3>
+                                        @else
+                                            <h2 class="statistic-counter">{{count(Auth::user()->subscription()->get())}}</h2>
+                                            <h3>Подписок</h3>
+                                    @endisset
+
                                 </div>
 
                             </div>
