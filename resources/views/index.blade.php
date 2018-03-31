@@ -29,9 +29,9 @@
                                             <p>{{$item->description }}</p>
                                             <hr />
                                             <div class="single_blog_bottom_content">
-                                                <a class="robotolight" href="{{route('showProfile', $item->user_id)}}"><i class="fa fa fa-user"></i> {{\App\Providers\CommentServiceProvider::getUserName($item->user_id)}} </a>
-                                                <a class="robotolight"><i class="fa fa-calendar"></i> {{$item->created_at}} </a>
-                                                <a class="robotolight"  href="{{route('showNews', [$item->id])}}"><i class="fa fa-comment"></i> {{count($item->comments)}} </a>
+                                                <a class="robotolight icons" href="{{route('showProfile', $item->user_id)}}"><i class="fa fa fa-user"></i> {{\App\Providers\CommentServiceProvider::getUserName($item->user_id)}} </a>
+                                                <a class="robotolight icons"><i class="fa fa-calendar"></i> {{$item->created_at}} </a>
+                                                <a class="robotolight icons"  href="{{route('showNews', [$item->id])}}"><i class="fa fa-comment"></i> {{count($item->comments)}} </a>
                                             </div>
 
                                         </div>

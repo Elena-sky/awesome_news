@@ -27,8 +27,8 @@
                                                     <hr />
 
                                                     <div class="single_blog_bottom_content">
-                                                        <a class="robotolight"><i class="fa fa-calendar"></i>{{$item->created_at}}</a>
-                                                        <a class="robotolight" href="{{route('showNews', [$item->id])}}"><i class="fa fa-commenting"></i> {{count($item->comments)}} </a>
+                                                        <a class="robotolight icons"><i class="fa fa-calendar"></i>{{$item->created_at}}</a>
+                                                        <a class="robotolight icons" href="{{route('showNews', [$item->id])}}"><i class="fa fa-commenting"></i> {{count($item->comments)}} </a>
                                                     </div>
 
                                                 </div>
@@ -58,10 +58,12 @@
                                                         <hr />
 
                                                         <div class="single_blog_bottom_content">
-                                                            <a class="robotolight"><i class="fa fa-calendar"></i>{{$item->created_at}}</a>
-                                                            <a class="robotolight" href="{{route('showNews', [$item->id])}}"><i class="fa fa-commenting"></i>  {{count($item->comments)}}</a>
-                                                            <a class="robotolight" href="{{route('updateNews', [$item->id])}}"><i class="fa fa-pencil-square-o"></i></a>
-                                                            <a class="robotolight delete-news" data-news-id="{{$item->id}}"><i class="fa fa-remove"></i></a>
+                                                            <a class="robotolight icons"><i class="fa fa-calendar"></i>{{$item->created_at}}</a>
+                                                            <a class="robotolight icons" href="{{route('showNews', [$item->id])}}"><i class="fa fa-commenting"></i>  {{count($item->comments)}}</a>
+                                                            <div class="pull-right">
+                                                                <a class="robotolight icons" href="{{route('updateNews', [$item->id])}}"><i class="fa fa-pencil-square-o"></i></a>
+                                                                <a class="robotolight icons delete-news" data-news-id="{{$item->id}}"><i class="fa fa-remove"></i></a>
+                                                            </div>
                                                         </div>
 
                                                     </div>
