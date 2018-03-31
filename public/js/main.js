@@ -163,7 +163,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-
+    // Ajax delete news
     $(".delete-news").click(function () {
         var id = $(this).data('news-id');
 
@@ -184,6 +184,30 @@ jQuery(document).ready(function ($) {
 
 
             })
+    });
+
+
+    //Ajax delete comment
+    $(".delete-comment").click(function () {
+        var id = $(this).data('comment-id');
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: "delete",
+            url: "http://news.loc/comment/delete",
+            data: {id: id, _method: 'delete'},
+            success: function (response) {
+                console.log(id + ' удалилось');
+                $('#id'+id).remove();
+            },
+            error: function () {
+
+            }
+
+
+        })
     });
 
 

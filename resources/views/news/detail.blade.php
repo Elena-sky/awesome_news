@@ -14,13 +14,17 @@
                             </div>
 
                             <div class="single_blog_bottom_content">
-                                <a class="robotolight"><i class="fa fa-calendar"></i>{{$news->created_at}}</a>
-                                <a class="robotolight" href="#"><i class="fa fa-commenting"></i>17</a>
+                                <a class="robotolight"><i class="fa fa-calendar"></i> {{$news->created_at}}</a>
                             </div>
 
                     </div>
+
+
                 </div>
             </div>
+
+            @include('comments.comments')
+
         </div>
     </div>
 </div>

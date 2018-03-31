@@ -26,7 +26,7 @@ Route::post('/home/news/add', 'HomeController@create')->name('addNews'); // acti
 Route::get('/home/news/update/{id}', 'HomeController@showUpdate')->name('updateNews'); // view
 Route::put('/home/news/update/save/{id}', 'HomeController@saveNews')->name('newsSave'); // action
 
-//Delete news
+// AJAX delete news
 Route::delete('/home/news/delete', 'HomeController@deleteNews')->name('newsDelete'); // action
 
 
@@ -35,3 +35,9 @@ Route::get('/user/{id}', 'UsersController@profile')->name('showProfile'); // vie
 
 // Show news detail with comments
 Route::get('/news/{id}', 'NewsController@show')->name('showNews'); // view
+
+// Create comment for news
+Route::post('/news/{id}/comments/create', 'CommentsController@create')->name('createComment'); // action
+
+// AJAX delete comment
+Route::delete('/comment/delete', 'CommentsController@deleteComment')->name('commentDelete'); // action

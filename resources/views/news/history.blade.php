@@ -20,15 +20,15 @@
                                         <div class="col-sm-4">
                                             <div class="single_blog mg">
                                                 <div class="single_blog_content">
-                                                    <p class="monseratregular">{{$item->title}}</p>
+                                                    <a href="{{route('showNews', [$item->id])}}">
+                                                        <p class="monseratregular">{{$item->title}}</p>
+                                                    </a>
                                                     <p>{{$item->description }}</p>
                                                     <hr />
 
                                                     <div class="single_blog_bottom_content">
                                                         <a class="robotolight"><i class="fa fa-calendar"></i>{{$item->created_at}}</a>
-                                                        <a class="robotolight" href="#"><i class="fa fa-commenting"></i>17</a>
-                                                        <a class="robotolight" href="{{route('updateNews', [$item->id])}}"><i class="fa fa-pencil-square-o"></i></a>
-                                                        <a class="robotolight delete-news" data-news-id="{{$item->id}}"><i class="fa fa-remove"></i></a>
+                                                        <a class="robotolight" href="{{route('showNews', [$item->id])}}"><i class="fa fa-commenting"></i> {{count($item->comments)}} </a>
                                                     </div>
 
                                                 </div>
@@ -51,13 +51,15 @@
                                             <div class="col-sm-4">
                                                 <div class="single_blog mg">
                                                     <div class="single_blog_content">
-                                                        <p class="monseratregular">{{$item->title}}</p>
+                                                        <a href="{{route('showNews', [$item->id])}}">
+                                                            <p class="monseratregular">{{$item->title}}</p>
+                                                        </a>
                                                         <p>{{$item->description }}</p>
                                                         <hr />
 
                                                         <div class="single_blog_bottom_content">
                                                             <a class="robotolight"><i class="fa fa-calendar"></i>{{$item->created_at}}</a>
-                                                            <a class="robotolight" href="#"><i class="fa fa-commenting"></i>17</a>
+                                                            <a class="robotolight" href="{{route('showNews', [$item->id])}}"><i class="fa fa-commenting"></i>  {{count($item->comments)}}</a>
                                                             <a class="robotolight" href="{{route('updateNews', [$item->id])}}"><i class="fa fa-pencil-square-o"></i></a>
                                                             <a class="robotolight delete-news" data-news-id="{{$item->id}}"><i class="fa fa-remove"></i></a>
                                                         </div>
