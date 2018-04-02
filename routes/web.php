@@ -41,3 +41,7 @@ Route::post('/news/{id}/comments/create', 'CommentsController@create')->name('cr
 
 // AJAX delete comment
 Route::delete('/comment/delete', 'CommentsController@deleteComment')->name('commentDelete'); // action
+
+// AJAX add subscription
+Route::post('/subscription/add', 'SubscriptionController@add')->name('addSubscription'); // action
+Route::get('/user/{id}/subscription', 'SubscriptionController@subscription')->name('showSubscription');
