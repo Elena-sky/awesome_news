@@ -13,6 +13,14 @@
 
                     @isset($user)
 
+                        @if(count($user->news) < 1)
+
+                            <div class="head_title text-center">
+                                <h3>History is empty</h3>
+                            </div>
+
+                        @endif
+
                             <div class="main_blog_content">
                                 <div class="row">
                                     @foreach($user->news as $item)
