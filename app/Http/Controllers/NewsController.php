@@ -15,8 +15,9 @@ class NewsController extends Controller
     public function show($news_id)
     {
         $news = NewsServiceProvider::show($news_id);
+        $user = $news->users;
 
-        return view('cabinet.newsDetail', compact('news'));
+        return view('cabinet.newsDetail', compact('news', 'user'));
 
     }
 
