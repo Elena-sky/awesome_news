@@ -1426,6 +1426,9 @@ input::-ms-input-placeholder {
 .subscribe{
     background-color: #f38181;
 }
+.news-detail{
+    margin-top: 150px
+}
 
 
 

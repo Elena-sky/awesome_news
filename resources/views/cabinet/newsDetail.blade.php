@@ -2,8 +2,10 @@
 
 @section('content')
 
-    @include('profile.show')
+    <div class="news-detail">
 
-    @include('news.detail')
+        @include('news.detail')
+
+    </div>
 
 @endsection

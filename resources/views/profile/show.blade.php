@@ -20,7 +20,7 @@
 
                                                 <button type="button" class="btn btn-success unsubscribe" data-user-id="{{$user->id}}">Unsubscribe</button>
 
-                                            @else
+                                            @elseif($user->id !== \Illuminate\Support\Facades\Auth::user()->id)
 
                                                 <button type="button" class="btn btn-success subscribe" data-user-id="{{$user->id}}">Subscribe</button>
 

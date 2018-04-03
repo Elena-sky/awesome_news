@@ -11,7 +11,7 @@ class News extends Model
         'id', 'title', 'description', 'user_id', 'created_at'
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo('App\User', 'user_id');
     }
