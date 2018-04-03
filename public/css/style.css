@@ -1429,6 +1429,15 @@ input::-ms-input-placeholder {
 .news-detail{
     margin-top: 150px
 }
+.size{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.d-size{
+    height: 150px;
+}
 
 
 

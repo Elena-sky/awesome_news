@@ -31,11 +31,16 @@
                                             <div class="col-sm-4">
                                                 <div class="single_blog mg">
                                                     <div class="single_blog_content">
-                                                        <a href="{{route('showNews', [$news->id])}}">
-                                                            <p class="monseratregular">{{$news->title}}</p>
-                                                        </a>
 
-                                                        <p>{{$news->description }}</p>
+                                                        <div class="d-size">
+
+                                                            <a href="{{route('showNews', [$news->id])}}">
+                                                                <p class="monseratregular">{{$news->title}}</p>
+                                                            </a>
+                                                            <p class="size">{{$news->description }}</p>
+
+                                                        </div>
+
                                                         <hr />
                                                         <div class="single_blog_bottom_content">
                                                             <a class="robotolight icons" href="{{route('showProfile', $news->user_id)}}"><i class="fa fa fa-user"></i> {{\App\Providers\CommentServiceProvider::getUserName($news->user_id)}} </a>

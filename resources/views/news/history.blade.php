@@ -28,10 +28,16 @@
                                         <div class="col-sm-4">
                                             <div class="single_blog mg">
                                                 <div class="single_blog_content">
-                                                    <a href="{{route('showNews', [$item->id])}}">
-                                                        <p class="monseratregular">{{$item->title}}</p>
-                                                    </a>
-                                                    <p>{{$item->description }}</p>
+
+                                                    <div class="d-size">
+
+                                                        <a href="{{route('showNews', [$item->id])}}">
+                                                            <p class="monseratregular">{{$item->title}}</p>
+                                                        </a>
+                                                        <p class="size">{{$item->description }}</p>
+
+                                                    </div>
+
                                                     <hr />
 
                                                     <div class="single_blog_bottom_content">
@@ -59,10 +65,16 @@
                                             <div class="col-sm-4">
                                                 <div class="single_blog mg">
                                                     <div class="single_blog_content">
-                                                        <a href="{{route('showNews', [$item->id])}}">
-                                                            <p class="monseratregular">{{$item->title}}</p>
-                                                        </a>
-                                                        <p>{{$item->description }}</p>
+
+                                                        <div class="d-size">
+
+                                                            <a href="{{route('showNews', [$item->id])}}">
+                                                                <p class="monseratregular">{{$item->title}}</p>
+                                                            </a>
+                                                            <p class="size">{{$item->description }}</p>
+
+                                                        </div>
+
                                                         <hr />
 
                                                         <div class="single_blog_bottom_content">
