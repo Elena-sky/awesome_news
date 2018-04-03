@@ -224,14 +224,37 @@ jQuery(document).ready(function ($) {
             data: {id: id, _method: 'post'},
             success: function (response) {
                 console.log('на ' + id + ' подписался');
+
             },
             error: function () {
 
             }
 
-// @if(\Illuminate\Support\Facades\Auth::check())
-//         <button type="button" class="btn btn-success subscribe" data-user-id="{{$user->id}}
-//                                         @endif
+        })
+    });
+
+
+
+    //Ajax unsubscribe
+    $(".unsubscribe").click(function () {
+        var id = $(this).data('user-id');
+        console.log('клик на id ' + id );
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: "post",
+            url: "http://news.loc/unsubscription",
+            data: {id: id, _method: 'post'},
+            success: function (response) {
+                console.log('от ' + id + ' отписался');
+                window.location.reload(true);
+
+            },
+            error: function () {
+
+            }
+
         })
     });
 

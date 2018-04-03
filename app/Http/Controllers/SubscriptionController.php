@@ -7,8 +7,12 @@ use App\Providers\SubscriptionServiceProvider;
 use App\User;
 use Illuminate\Http\Request;
 
+
 class SubscriptionController extends Controller
 {
+    /**
+     * @param Request $request
+     */
     public function add(Request $request)
     {
         if(!empty($request->id)){
@@ -17,6 +21,10 @@ class SubscriptionController extends Controller
         }
     }
 
+    /**
+     * @param $user_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function subscription($user_id)
     {
         if(!empty($user_id)){
@@ -28,6 +36,10 @@ class SubscriptionController extends Controller
 
     }
 
+    /**
+     * @param $user_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function subscribers($user_id)
     {
         if(!empty($user_id)){
@@ -39,5 +51,18 @@ class SubscriptionController extends Controller
 
         return view('cabinet.showSubscribers', compact('subscribers', 'user'));
     }
+
+    /**
+     *
+     * @param Request $request
+     */
+    public function unsubscribe(Request $request)
+    {
+        if(!empty($request->id))
+        {
+            SubscriptionServiceProvider::deleteSubscription($request->id);
+        }
+    }
+
 
 }

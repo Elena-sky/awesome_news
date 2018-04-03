@@ -18,7 +18,7 @@
 
                                             @if(\App\Providers\SubscriberServiceProvider::checkOnSubscribers($user->id))
 
-                                                <button type="button" class="btn btn-success" data-user-id="{{$user->id}}">Unsubscribe</button>
+                                                <button type="button" class="btn btn-success unsubscribe" data-user-id="{{$user->id}}">Unsubscribe</button>
 
                                             @else
 

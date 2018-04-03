@@ -45,6 +45,9 @@ Route::delete('/comment/delete', 'CommentsController@deleteComment')->name('comm
 // AJAX add subscription
 Route::post('/subscription/add', 'SubscriptionController@add')->name('addSubscription'); // action
 
+// AJAX unsubscribe
+Route::post('/unsubscription', 'SubscriptionController@unsubscribe')->name('unsubscription'); // action
+
 // Show list subscriptions
 Route::get('/user/{id}/subscriptions', 'SubscriptionController@subscription')->name('showSubscription'); // view
 

@@ -10,4 +10,7 @@ interface SubscriptionInterface
 
     public static function getListSubscription($user_id);
 
+    public static function deleteSubscription($user_id);
+
+
 }
