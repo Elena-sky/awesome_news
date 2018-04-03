@@ -16,4 +16,9 @@ class Subscriber extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function getSubscriber()
+    {
+        return $this->belongsTo('App\User', 'subscriber');
+    }
+
 }

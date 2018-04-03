@@ -51,10 +51,14 @@
 
                                     @isset($user)
                                             <h2 class="statistic-counter">{{count($user->subscribers()->get())}}</h2>
+                                            <a href="{{ route('showSubscribers', $user->id) }}">
                                             <h3>Подпищиков</h3>
+                                        </a>
                                         @else
                                             <h2 class="statistic-counter">{{count(Auth::user()->subscribers()->get())}}</h2>
-                                            <h3>Подпищиков</h3>
+                                            <a href="{{ route('showSubscribers', Auth::user()->id) }}">
+                                                <h3>Подпищиков</h3>
+                                            </a>
                                     @endisset
 
                                 </div>

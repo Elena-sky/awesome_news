@@ -46,4 +46,7 @@ Route::delete('/comment/delete', 'CommentsController@deleteComment')->name('comm
 Route::post('/subscription/add', 'SubscriptionController@add')->name('addSubscription'); // action
 
 // Show list subscriptions
-Route::get('/user/{id}/subscription', 'SubscriptionController@subscription')->name('showSubscription'); // view
+Route::get('/user/{id}/subscriptions', 'SubscriptionController@subscription')->name('showSubscription'); // view
+
+// Show list subscribers
+Route::get('/user/{id}/subscribers', 'SubscriptionController@subscribers')->name('showSubscribers'); // view

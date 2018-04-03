@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\SubscriberServiceProvider;
 use App\Providers\SubscriptionServiceProvider;
 use App\User;
 use Illuminate\Http\Request;
@@ -25,6 +26,18 @@ class SubscriptionController extends Controller
         $user = User::find($user_id);
         return view('cabinet.showSubscription', compact('subscription', 'user'));
 
+    }
+
+    public function subscribers($user_id)
+    {
+        if(!empty($user_id)){
+            $subscribers = SubscriberServiceProvider::getListSubscribers($user_id);
+
+        }
+
+        $user = User::find($user_id);
+
+        return view('cabinet.showSubscribers', compact('subscribers', 'user'));
     }
 
 }
