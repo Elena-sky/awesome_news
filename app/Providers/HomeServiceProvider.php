@@ -6,7 +6,6 @@ use App\Contracts\HomeInterface;
 use App\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\ServiceProvider;
 
 class HomeServiceProvider implements HomeInterface
 {
@@ -20,12 +19,12 @@ class HomeServiceProvider implements HomeInterface
             return false;
         }
 
-
     }
 
     public static function create(Request $request)
     {
         if (!empty($request->user_id)){
+
             $data = [
                 'title' => $request->title,
                 'description' => $request->description,
@@ -36,7 +35,6 @@ class HomeServiceProvider implements HomeInterface
         }
 
     }
-
 
 
     public static function update($news_id)
@@ -58,14 +56,15 @@ class HomeServiceProvider implements HomeInterface
         $news->update($data);
     }
 
+
     public static function delete(Request $request)
     {
         $news_id = $request->id;
+
         $news = News::find($news_id);
         $news->delete();
 
         return true;
     }
-
 
 }
