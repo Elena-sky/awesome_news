@@ -42,8 +42,11 @@ Route::post('/news/{id}/comments/create', 'CommentsController@create')->name('cr
 // AJAX delete comment
 Route::delete('/comment/delete', 'CommentsController@deleteComment')->name('commentDelete'); // action
 
+
+
 // AJAX add subscription
 Route::post('/subscription/add', 'SubscriptionController@add')->name('addSubscription'); // action
+
 
 // AJAX unsubscribe
 Route::post('/unsubscription', 'SubscriptionController@unsubscribe')->name('unsubscription'); // action
@@ -53,3 +56,6 @@ Route::get('/user/{id}/subscriptions', 'SubscriptionController@subscription')->n
 
 // Show list subscribers
 Route::get('/user/{id}/subscribers', 'SubscriptionController@subscribers')->name('showSubscribers'); // view
+
+// Show news of subscriptions
+Route::get('/subscriptions/news', 'NewsController@subscriptions')->name('newsOfSubscriptions'); // view

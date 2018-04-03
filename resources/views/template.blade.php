@@ -68,6 +68,7 @@
                                         <li><a href="{{ route('login') }}">Login</a></li>
                                         <li><a href="{{ route('register') }}">Register</a></li>
                                         @else
+                                            <li><a href="{{ route('newsOfSubscriptions') }}">Subscription news</a></li>
                                             <li><a href="{{ route('home') }}">My page</a></li>
                                             <li><a href="{{ route('newNews') }}">Create news</a></li>
 

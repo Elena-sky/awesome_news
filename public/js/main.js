@@ -224,6 +224,7 @@ jQuery(document).ready(function ($) {
             data: {id: id, _method: 'post'},
             success: function (response) {
                 console.log('на ' + id + ' подписался');
+                window.location.reload(true);
 
             },
             error: function () {
