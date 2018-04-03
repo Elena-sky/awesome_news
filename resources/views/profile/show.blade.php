@@ -15,7 +15,17 @@
                                         <h4 class="subtitle">E-mail: {{ $user->email }}</h4>
 
                                         @if(\Illuminate\Support\Facades\Auth::check())
+
+                                            @if(\App\Providers\SubscriberServiceProvider::checkOnSubscribers($user->id))
+
+                                                <button type="button" class="btn btn-success" data-user-id="{{$user->id}}">Unsubscribe</button>
+
+                                            @else
+
                                                 <button type="button" class="btn btn-success subscribe" data-user-id="{{$user->id}}">Subscribe</button>
+
+                                            @endif
+
                                         @endif
 
 
