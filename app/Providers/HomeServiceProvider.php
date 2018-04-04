@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeServiceProvider implements HomeInterface
 {
+    /**
+     * Get all news of auth user.
+     *
+     * @return bool
+     */
     public static function show()
     {
         $news = Auth::user()->news()->get();
@@ -21,6 +26,12 @@ class HomeServiceProvider implements HomeInterface
 
     }
 
+
+    /**
+     * Store a newly created news in storage.
+     *
+     * @param Request $request
+     */
     public static function create(Request $request)
     {
         if (!empty($request->user_id)){
@@ -37,6 +48,12 @@ class HomeServiceProvider implements HomeInterface
     }
 
 
+    /**
+     * Get news for update.
+     *
+     * @param $news_id
+     * @return mixed
+     */
     public static function update($news_id)
     {
         $data = News::find($news_id);
@@ -44,6 +61,12 @@ class HomeServiceProvider implements HomeInterface
         return $data;
     }
 
+
+    /**
+     * Update the specified news in storage.
+     *
+     * @param Request $request
+     */
     public static function put(Request $request)
     {
         $news_id = $request->route('id');
@@ -57,6 +80,12 @@ class HomeServiceProvider implements HomeInterface
     }
 
 
+    /**
+     * Remove the specified news from storage.
+     *
+     * @param Request $request
+     * @return bool
+     */
     public static function delete(Request $request)
     {
         $news_id = $request->id;
