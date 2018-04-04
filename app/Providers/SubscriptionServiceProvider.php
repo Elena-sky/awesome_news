@@ -14,6 +14,13 @@ class SubscriptionServiceProvider implements SubscriptionInterface
 {
     use SearchOfSubscribers;
 
+
+    /**
+     * Store a newly created subscription in storage.
+     *
+     * @param $user_id
+     * @return bool
+     */
     public static function addSubscription($user_id)
     {
         $data = [
@@ -26,15 +33,28 @@ class SubscriptionServiceProvider implements SubscriptionInterface
         return true;
     }
 
+
+    /**
+     * Get a list of the subscription from the storage.
+     *
+     * @param $user_id
+     * @return mixed
+     */
     public static function getListSubscription($user_id)
     {
         $subscription = User::find($user_id)->subscription()->get();
 
         return $subscription;
 
-
     }
 
+
+    /**
+     * Remove the specified subscription from storage.
+     *
+     * @param $user_id
+     * @return bool
+     */
     public static function deleteSubscription($user_id)
     {
         $subscribers = SubscriberServiceProvider::getListSubscribers($user_id);
