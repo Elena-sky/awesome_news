@@ -13,7 +13,9 @@ class IndexController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(){
-        $news = News::all();
+        $news = News::query()
+            ->orderBy('id', 'desc')
+            ->paginate(6);
 
         return view('index', compact('news'));
     }

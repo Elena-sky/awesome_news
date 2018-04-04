@@ -45,7 +45,13 @@
 
                             @endforeach
 
+                                <div class="text-center">
+                                    {{ $news->links() }}
+                                </div>
+
                         </div>
+
+
                     </div>
                 </div>
             </div>
