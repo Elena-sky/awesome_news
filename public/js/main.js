@@ -172,7 +172,7 @@ jQuery(document).ready(function ($) {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "delete",
-            url: "http://news.loc/home/news/delete",
+            url: "http://news-project.01g.info/home/news/delete",
             data: {id: id, _method: 'delete'},
             success: function (response) {
                 console.log(id + ' удалилось');
@@ -196,7 +196,7 @@ jQuery(document).ready(function ($) {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "delete",
-            url: "http://news.loc/comment/delete",
+            url: "http://news-project.01g.info/comment/delete",
             data: {id: id, _method: 'delete'},
             success: function (response) {
                 console.log(id + ' удалилось');
@@ -220,7 +220,7 @@ jQuery(document).ready(function ($) {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "post",
-            url: "http://news.loc/subscription/add",
+            url: "http://news-project.01g.info/subscription/add",
             data: {id: id, _method: 'post'},
             success: function (response) {
                 console.log('на ' + id + ' подписался');
@@ -245,7 +245,7 @@ jQuery(document).ready(function ($) {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "post",
-            url: "http://news.loc/unsubscription",
+            url: "http://news-project.01g.info/unsubscription",
             data: {id: id, _method: 'post'},
             success: function (response) {
                 console.log('от ' + id + ' отписался');
